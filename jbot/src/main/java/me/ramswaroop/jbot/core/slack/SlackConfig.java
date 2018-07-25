@@ -21,4 +21,40 @@ public class SlackConfig {
 			private String webhookDeployment;
 			private String webhookBusinessApproval;
 			private String p;
+			public String getApi() {
+				return api;
+			}
+			public void setApi(String api) {
+				this.api = api;
+			}
+			public String getBotToken() {
+				return botToken;
+			}
+			public void setBotToken(String botToken) {
+				this.botToken = botToken;
+			}
+			public String getVerificationToken() {
+				return verificationToken;
+			}
+			public void setVerificationToken(String verificationToken) {
+				this.verificationToken = verificationToken;
+			}
+			public String getWebhookDeployment() {
+				return webhookDeployment;
+			}
+			public void setWebhookDeployment(String webhookDeployment) {
+				this.webhookDeployment = webhookDeployment;
+			}
+			public String getWebhookBusinessApproval() {
+				return webhookBusinessApproval;
+			}
+			public void setWebhookBusinessApproval(String webhookBusinessApproval) {
+				this.webhookBusinessApproval = webhookBusinessApproval;
+			}
+			public String getP() {
+				return p;
+			}
+			public void setP(String p) {
+				this.p = p;
+			}
 }

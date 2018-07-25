@@ -10,7 +10,22 @@ public class Error {
     private int code;
     private String msg;
 
-    public int getCode() {
+    public Error() {
+		super();
+	}
+
+	public Error(String msg) {
+		super();
+		this.msg = msg;
+	}
+
+	public Error(int code, String msg) {
+		super();
+		this.code = code;
+		this.msg = msg;
+	}
+
+	public int getCode() {
         return code;
     }
 

@@ -28,7 +28,33 @@ public class RichMessage {
     public RichMessage() {
     }
 
-    public RichMessage(String text) {
+    public RichMessage(String channel, String username, String text, String iconEmoji, String responseType,
+			boolean isAppUnfurl, String botId, String type, String subType, String ts, Attachment[] attachments) {
+		super();
+		this.channel = channel;
+		this.username = username;
+		this.text = text;
+		this.iconEmoji = iconEmoji;
+		this.responseType = responseType;
+		this.isAppUnfurl = isAppUnfurl;
+		this.botId = botId;
+		this.type = type;
+		this.subType = subType;
+		this.ts = ts;
+		this.attachments = attachments;
+	}
+    public RichMessage(String channel, String username, String text, String iconEmoji, String responseType,
+			 Attachment[] attachments) {
+		super();
+		this.channel = channel;
+		this.username = username;
+		this.text = text;
+		this.iconEmoji = iconEmoji;
+		this.responseType = responseType;		
+		this.attachments = attachments;
+	}
+
+	public RichMessage(String text) {
         this.text = text;
     }
     

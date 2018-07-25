@@ -9,6 +9,16 @@ public class Action {
 	private String style;
 	private Confirm confirm;
 	
+	public Action(String id, String name, String text, String type, String value, String style, Confirm confirm) {
+		super();
+		this.id = id;
+		this.name = name;
+		this.text = text;
+		this.type = type;
+		this.value = value;
+		this.style = style;
+		this.confirm = confirm;
+	}
 	public String getId() {
 		return id;
 	}

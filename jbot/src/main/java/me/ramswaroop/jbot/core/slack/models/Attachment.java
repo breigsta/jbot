@@ -39,6 +39,36 @@ public class Attachment {
 	@JsonProperty("mrkdwn_in")
 	private List<String> markdownIn;
 	private Action[] actions;
+	
+	
+	public Attachment() {
+		super();
+	}
+	public Attachment(String text, String fallback, String callbackId, String color, String attachmentType,
+			String pretext, String authorName, String authorLink, String authorIcon, String title, String titleLink,
+			Field[] fields, String imageUrl, String thumbUrl, String footer, String footerIcon, String ts,
+			List<String> markdownIn, Action[] actions) {
+		super();
+		this.text = text;
+		this.fallback = fallback;
+		this.callbackId = callbackId;
+		this.color = color;
+		this.attachmentType = attachmentType;
+		this.pretext = pretext;
+		this.authorName = authorName;
+		this.authorLink = authorLink;
+		this.authorIcon = authorIcon;
+		this.title = title;
+		this.titleLink = titleLink;
+		this.fields = fields;
+		this.imageUrl = imageUrl;
+		this.thumbUrl = thumbUrl;
+		this.footer = footer;
+		this.footerIcon = footerIcon;
+		this.ts = ts;
+		this.markdownIn = markdownIn;
+		this.actions = actions;
+	}
 	public String getText() {
 		return text;
 	}
