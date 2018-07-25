@@ -24,10 +24,16 @@ public class SlackRestControllerTest {
 		runInstance(8);
 		runInstance(9);
 		runInstance(10);
+		runInstance(11);
+		runInstance(12);
+		runInstance(13);
+		runInstance(110);
+		runInstance(111);
 	}
 	
 	private void runInstance(Integer instance) {
 		String i = instance.toString();
+		System.out.println("Instance: " + i);
 		String result = this.controller.getApprovalFeatureList(i);
 		System.out.println(result);
 	}
