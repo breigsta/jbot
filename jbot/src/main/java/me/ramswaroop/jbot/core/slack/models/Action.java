@@ -1,5 +1,11 @@
 package me.ramswaroop.jbot.core.slack.models;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.fasterxml.jackson.annotation.JsonInclude;
+
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+
 public class Action {
 	private String id;
 	private String name;
@@ -9,6 +15,9 @@ public class Action {
 	private String style;
 	private Confirm confirm;
 	
+	public Action() {
+		super();
+	}
 	public Action(String id, String name, String text, String type, String value, String style, Confirm confirm) {
 		super();
 		this.id = id;

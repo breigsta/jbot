@@ -9,6 +9,9 @@ public class Confirm {
 	@JsonProperty("dismiss_text")
 	private String dismissText;
 	
+	public Confirm() {
+		super();
+	}
 	public Confirm(String title, String text, String okText, String dismissText) {
 		super();
 		this.title = title;

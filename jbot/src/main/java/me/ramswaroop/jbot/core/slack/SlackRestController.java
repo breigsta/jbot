@@ -5,8 +5,6 @@ import java.io.File;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.lang.ProcessBuilder.Redirect;
-import java.util.ArrayList;
-import java.util.List;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -20,6 +18,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.client.RestClientException;
 import org.springframework.web.client.RestTemplate;
+import org.springframework.web.context.request.WebRequest;
 
 import me.ramswaroop.jbot.core.slack.models.Action;
 import me.ramswaroop.jbot.core.slack.models.Attachment;
@@ -38,14 +37,16 @@ public class SlackRestController {
 
 	@RequestMapping(consumes = {MediaType.APPLICATION_FORM_URLENCODED_VALUE }, method = RequestMethod.POST, value = "/receive/message")
 //	public ResponseEntity<RichMessage> receiveInteractiveMessage(-EITHER- @RequestParam("payload") Payload payload -OR- WebRequest request) {
-	public ResponseEntity<RichMessage> receiveInteractiveMessage(@RequestParam("payload") Payload payload) {
+//	public ResponseEntity<RichMessage> receiveInteractiveMessage(@RequestParam("payload") Payload payload) {
+	public ResponseEntity<RichMessage> receiveInteractiveMessage(WebRequest request) {
 		
+		Payload payload = JsonUtil.deSerialize(request.getParameter("payload"), Payload.class);
 		String response_text;
 		if (payload.getActions()[0].getName().equals("approve")) {
-			response_text = approve(payload.getUser().getContactName(), payload.getActions()[0].getValue());
+			response_text = approve(payload.getUser().getName(), payload.getActions()[0].getValue());
 		}
 				else if (payload.getActions()[0].getName().equals("reject")) {
-					response_text = reject(payload.getUser().getContactName(), payload.getActions()[0].getValue());
+					response_text = reject(payload.getUser().getName(), payload.getActions()[0].getValue());
 				} else {
 					response_text = "I dont know what to do with this.";
 				}
