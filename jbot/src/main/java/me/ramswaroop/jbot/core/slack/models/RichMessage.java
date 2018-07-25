@@ -9,15 +9,22 @@ import com.fasterxml.jackson.annotation.JsonProperty;
  */
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class RichMessage {
-    private String username;
-    @JsonProperty("icon_emoji")
-    private String iconEmoji;
-    private String channel;
-    private String text;
-    @JsonProperty("response_type")
-    private String responseType;
-    private Attachment[] attachments;
-
+	  private String channel;
+	  private String username;
+	  private String text;
+	  @JsonProperty("icon_emoji")
+	  private String iconEmoji;
+	  @JsonProperty("response_type")
+	  private String responseType;
+		@JsonProperty("is_app_unfurl")
+		private boolean isAppUnfurl;
+		@JsonProperty("bot_id")
+		private String botId;
+		private String type;
+		private String subType;
+		private String ts;
+	  private Attachment[] attachments;
+	  
     public RichMessage() {
     }
 
@@ -77,4 +84,44 @@ public class RichMessage {
     public void setAttachments(Attachment[] attachments) {
         this.attachments = attachments;
     }
+
+	public boolean isAppUnfurl() {
+		return isAppUnfurl;
+	}
+
+	public void setAppUnfurl(boolean isAppUnfurl) {
+		this.isAppUnfurl = isAppUnfurl;
+	}
+
+	public String getBotId() {
+		return botId;
+	}
+
+	public void setBotId(String botId) {
+		this.botId = botId;
+	}
+
+	public String getType() {
+		return type;
+	}
+
+	public void setType(String type) {
+		this.type = type;
+	}
+
+	public String getSubType() {
+		return subType;
+	}
+
+	public void setSubType(String subType) {
+		this.subType = subType;
+	}
+
+	public String getTs() {
+		return ts;
+	}
+
+	public void setTs(String ts) {
+		this.ts = ts;
+	}
 }
