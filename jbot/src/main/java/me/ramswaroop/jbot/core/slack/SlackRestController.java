@@ -56,7 +56,7 @@ public class SlackRestController {
 		if (payload.getActions()[0].getName().equals("approve")) {
 			response_text = approve(payload.getUser().getName(), payload.getActions()[0].getValue(), originalText);
 		} else if (payload.getActions()[0].getName().equals("reject")) {
-			response_text = reject(payload.getUser().getName(), payload.getActions()[0].getValue());
+			response_text = reject(payload.getUser().getName(), payload.getActions()[0].getValue(), originalText);
 		} else {
 			response_text = "I dont know what to do with this.";
 		}
@@ -168,11 +168,11 @@ public class SlackRestController {
 		return responseText;
 	}
 
-	private String reject(String user, String value) {
+	private String reject(String user, String value, String originalText) {
 		// Send same responseText in response and to #Deployments channel
 		String responseText = ":x: " + user + " rejected pipeline " + value
 				+ " for deployment to production.\nPipeline Link: https://localhost:8154/go/pipelines/value_stream_map/"
-				+ value;
+				+ value + "\n" + originalText;
 		return responseText;
 	}
 
